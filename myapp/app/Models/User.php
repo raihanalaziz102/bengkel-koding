@@ -1,15 +1,14 @@
 <?php
-
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable;
 
     protected $fillable = [
         'nama',
@@ -20,38 +19,32 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function cast(): array
+    protected function casts(): array
     {
-            return [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
-    
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
     }
 
-
-    public function periksa_pasien(){
-    return $this->hasMany(periksa_pasien::class, 'id_pasien', 'id');
+    public function periksa_pasien(): HasMany
+    {
+        return $this->hasMany(Periksa::class, 'id_pasien', 'id');
     }
-    
-    public function periksa_dokter(){
-    return $this->hasMany(periksa_dokter::class, 'id_dokter', 'id');
+
+    public function periksa_dokter(): HasMany
+    {
+        return $this->hasMany(Periksa::class, 'id_dokter', 'id');
+    }
+
+    public function periksas(): HasMany
+    {
+        return $this->hasMany(Periksa::class, 'id_pasien', 'id')
+            ->orWhere('id_dokter', $this->id);
     }
 }
-
-

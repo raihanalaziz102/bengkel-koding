@@ -68,12 +68,17 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach ($periksas as $periksa)
                     <tr>
-                      <td>1</td>
-                      <td>Test</td>
-                      <td><span>Edit</span></td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $periksa->pasien->nama }}</td>
+                        <td>
+                            <a href="{{ route('dokter.periksa.edit', $periksa->id) }}" class="btn btn-sm btn-primary">Periksa</a>
+                        </td>
                     </tr>
-                  </tbody>
+                    @endforeach
+                    
+                </tbody>                
                 </table>
               </div>
               <!-- /.card-body -->

@@ -1,40 +1,38 @@
 <?php
 
-use App\Http\Controllers\ObatController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ObatController;
+use App\Http\Controllers\PeriksaController;
+use App\Http\Controllers\PemeriksaanController;
+// Landing & Auth
+Route::get('/', fn () => view('layout.landing_page'));
+Route::get('/login', fn () => view('layout.login'))->name('login');
+Route::get('/register', fn () => view('layout.register'))->name('register');
 
-Route::get('/', function () {
-    return view('layout.landing_page');
-});
+// Dokter Dashboard
+Route::get('/dokter/dashboard', fn () => view('dokter.index'))->name('dokter.dashboard');
 
-Route::get('/login', function () {
-    return view('layout.login');
-});
+// Obat (Dokter CRUD)
+Route::get('/dokter/obat', [ObatController::class, 'index'])->name('obat.index');
+Route::post('/dokter/obat', [ObatController::class, 'store'])->name('obat.store');
+Route::get('/dokter/obat/{id}/edit', [ObatController::class, 'edit'])->name('obat.edit');
+Route::put('/dokter/obat/{id}', [ObatController::class, 'update'])->name('obat.update');
+Route::delete('/dokter/obat/{id}', [ObatController::class, 'destroy'])->name('obat.destroy');
 
-Route::get('/register', function () {
-    return view('layout.register');
-});
+// Dokter Memeriksa (list pasien yang buat janji)
+Route::get('/dokter/memeriksa', [PeriksaController::class, 'index'])->name('dokter.memeriksa');
 
-Route::get('/dokter/dashboard', function () {
-    return view('dokter.index');
-})->name('dokter.dashboard');
+// Dokter Form Pemeriksaan (edit catatan dan obat)
+Route::get('/dokter/periksa/{id}/edit', [PemeriksaanController::class, 'edit'])->name('dokter.periksa.edit');
+Route::post('/dokter/periksa/{id}', [PemeriksaanController::class, 'update'])->name('dokter.periksa.update');
+Route::put('/dokter/periksa/{id}', [PemeriksaanController::class, 'update'])->name('dokter.periksa.update');
 
-Route::get('/dokter/memeriksa', function () {
-    return view('dokter.memeriksa');
-});
 
-//Jika langsung view
-/*Route::get('/dokter/obat', function () {
-    return view('dokter.obat');
-});*/
+// Pasien Dashboard
+Route::get('/pasien/dashboard', fn () => view('pasien.index'))->name('pasien.dashboard');
 
-//Jika menggunakan controller
-Route::get('/dokter/obat', [ObatController::class, 'index']);
+// Pasien Buat Janji Periksa
+Route::get('/pasien/periksa', [PeriksaController::class, 'create'])->name('pasien.periksa.create');
+Route::post('/pasien/periksa', [PeriksaController::class, 'store'])->name('pasien.periksa.store');
 
-Route::get('/pasien/dashboard', function () {
-    return view('pasien.index');
-});
-
-Route::get('/pasien/periksa', function () {
-    return view('pasien.periksa');
-});
+Route::get('/pasien/riwayat', [PeriksaController::class, 'riwayat'])->name('pasien.riwayat');

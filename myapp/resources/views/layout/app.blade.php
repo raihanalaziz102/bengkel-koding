@@ -1,6 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    /* Main sidebar styling */
+    .main-sidebar {
+      background-color: #88d8b0 !important; /* Hijau Muda */
+      color: #000 !important; /* Warna teks agar lebih kontras */
+      width: 300px !important; /* Increased width */
+    }
+  
+    /* Header styling */
+    .main-header {
+      background-color: #a8e6cf !important; /* Hijau muda */
+      border-bottom: 1px solid #88d8b0; /* Warna lebih gelap untuk pembatas */
+      margin-left: 300px !important;
+    }
+  
+    /* Content and footer adjustments */
+    .content-wrapper, 
+    .main-footer {
+      margin-left: 300px !important;
+    }
+  
+    /* Brand logo area */
+    .brand-link {
+      padding: 15px !important;
+      font-size: 18px !important;
+    }
+  
+    .brand-link .brand-image {
+      margin-right: 10px !important;
+      margin-left: 5px !important;
+    }
+  
+    /* User panel styling */
+    .user-panel {
+      padding: 15px 10px !important;
+    }
+  
+    .user-panel .info {
+      font-size: 16px !important;
+      padding-left: 10px !important;
+    }
+  
+    .user-panel .image img {
+      width: 40px !important;
+      height: 40px !important;
+    }
+  
+    /* Sidebar search form */
+    .sidebar .form-inline {
+      padding: 10px !important;
+    }
+  
+    .form-control-sidebar {
+      height: 38px !important;
+      font-size: 15px !important;
+    }
+  
+    .btn-sidebar {
+      width: 40px !important;
+      height: 38px !important;
+    }
+  
+    /* Navigation links */
+    .sidebar .nav-pills .nav-link {
+      padding: 12px 15px !important;
+      font-size: 16px !important;
+      border-radius: 5px !important;
+      margin: 4px 8px !important;
+    }
+  
+    /* Icons in navigation */
+    .sidebar .nav-icon {
+      font-size: 18px !important;
+      margin-right: 10px !important;
+    }
+  
+    /* Add more spacing between navigation items */
+    .sidebar .nav-item {
+      margin-bottom: 5px !important;
+    }
+  
+    /* Highlight active menu item */
+    .sidebar .nav-pills .nav-link.active {
+      background-color: #4caf50 !important;
+      color: #fff !important;
+      font-weight: 500 !important;
+    }
+  
+    /* Hover effect for menu items */
+    .sidebar .nav-pills .nav-link:hover {
+      background-color: rgba(76, 175, 80, 0.2) !important;
+      color: #000 !important;
+    }
+  
+    /* Dropdown menu inside sidebar */
+    .sidebar .nav-treeview > .nav-item > .nav-link {
+      padding-left: 30px !important;
+      font-size: 15px !important;
+    }
+  
+    /* Responsive adjustments */
+    @media (max-width: 991.98px) {
+      .content-wrapper, 
+      .main-header, 
+      .main-footer {
+        margin-left: 0 !important;
+      }
+    }
+  
+    /* When sidebar is collapsed */
+    body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .content-wrapper.sidebar-closed,
+    body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header.sidebar-closed,
+    body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer.sidebar-closed {
+      margin-left: 0 !important;
+    }
+  </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title')</title>
@@ -174,7 +290,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-light-success elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{asset('lte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
