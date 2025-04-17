@@ -1,406 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-    /* Main sidebar styling */
-    .main-sidebar {
-      background-color: #88d8b0 !important; /* Hijau Muda */
-      color: #000 !important; /* Warna teks agar lebih kontras */
-      width: 300px !important; /* Increased width */
-    }
-  
-    /* Header styling */
-    .main-header {
-      background-color: #a8e6cf !important; /* Hijau muda */
-      border-bottom: 1px solid #88d8b0; /* Warna lebih gelap untuk pembatas */
-      margin-left: 300px !important;
-    }
-  
-    /* Content and footer adjustments */
-    .content-wrapper, 
-    .main-footer {
-      margin-left: 300px !important;
-    }
-  
-    /* Brand logo area */
-    .brand-link {
-      padding: 15px !important;
-      font-size: 18px !important;
-    }
-  
-    .brand-link .brand-image {
-      margin-right: 10px !important;
-      margin-left: 5px !important;
-    }
-  
-    /* User panel styling */
-    .user-panel {
-      padding: 15px 10px !important;
-    }
-  
-    .user-panel .info {
-      font-size: 16px !important;
-      padding-left: 10px !important;
-    }
-  
-    .user-panel .image img {
-      width: 40px !important;
-      height: 40px !important;
-    }
-  
-    /* Sidebar search form */
-    .sidebar .form-inline {
-      padding: 10px !important;
-    }
-  
-    .form-control-sidebar {
-      height: 38px !important;
-      font-size: 15px !important;
-    }
-  
-    .btn-sidebar {
-      width: 40px !important;
-      height: 38px !important;
-    }
-  
-    /* Navigation links */
-    .sidebar .nav-pills .nav-link {
-      padding: 12px 15px !important;
-      font-size: 16px !important;
-      border-radius: 5px !important;
-      margin: 4px 8px !important;
-    }
-  
-    /* Icons in navigation */
-    .sidebar .nav-icon {
-      font-size: 18px !important;
-      margin-right: 10px !important;
-    }
-  
-    /* Add more spacing between navigation items */
-    .sidebar .nav-item {
-      margin-bottom: 5px !important;
-    }
-  
-    /* Highlight active menu item */
-    .sidebar .nav-pills .nav-link.active {
-      background-color: #4caf50 !important;
-      color: #fff !important;
-      font-weight: 500 !important;
-    }
-  
-    /* Hover effect for menu items */
-    .sidebar .nav-pills .nav-link:hover {
-      background-color: rgba(76, 175, 80, 0.2) !important;
-      color: #000 !important;
-    }
-  
-    /* Dropdown menu inside sidebar */
-    .sidebar .nav-treeview > .nav-item > .nav-link {
-      padding-left: 30px !important;
-      font-size: 15px !important;
-    }
-  
-    /* Responsive adjustments */
-    @media (max-width: 991.98px) {
-      .content-wrapper, 
-      .main-header, 
-      .main-footer {
-        margin-left: 0 !important;
-      }
-    }
-  
-    /* When sidebar is collapsed */
-    body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .content-wrapper.sidebar-closed,
-    body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header.sidebar-closed,
-    body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer.sidebar-closed {
-      margin-left: 0 !important;
-    }
-  </style>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>@yield('title')</title>
+    <style>
+        /* Main sidebar styling */
+        .main-sidebar {
+            background-color:rgb(216, 136, 149) !important; /* Hijau Muda */
+            color: #000 !important;
+            width: 300px !important;
+        }
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('lte\plugins/fontawesome-free/css/all.min.css')}}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="{{asset('lte\plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="{{asset('lte\plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="{{asset('lte\plugins/jqvmap/jqvmap.min.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('lte/dist/css/adminlte.min.css')}}">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{asset('lte\plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="{{asset('lte\plugins/daterangepicker/daterangepicker.css')}}">
-  <!-- summernote -->
-  <link rel="stylesheet" href="{{asset('lte\plugins/summernote/summernote-bs4.min.css')}}">
-  @stack('styles')
+        /* Header styling */
+        .main-header {
+            background-color:rgb(230, 168, 217) !important;
+            border-bottom: 1px solid #88d8b0;
+            margin-left: 300px !important;
+        }
+
+        /* Content and footer adjustments */
+        .content-wrapper,
+        .main-footer {
+            margin-left: 300px !important;
+        }
+
+        /* Brand logo area */
+        .brand-link {
+            padding: 15px !important;
+            font-size: 18px !important;
+        }
+
+        .brand-link .brand-image {
+            margin-right: 10px !important;
+            margin-left: 5px !important;
+        }
+
+        /* User panel styling */
+        .user-panel {
+            padding: 15px 10px !important;
+        }
+
+        .user-panel .info {
+            font-size: 16px !important;
+            padding-left: 10px !important;
+        }
+
+        .user-panel .image img {
+            width: 40px !important;
+            height: 40px !important;
+        }
+
+        /* Sidebar search form */
+        .sidebar .form-inline {
+            padding: 10px !important;
+        }
+
+        .form-control-sidebar {
+            height: 38px !important;
+            font-size: 15px !important;
+        }
+
+        .btn-sidebar {
+            width: 40px !important;
+            height: 38px !important;
+        }
+
+        /* Navigation links */
+        .sidebar .nav-pills .nav-link {
+            padding: 12px 15px !important;
+            font-size: 16px !important;
+            border-radius: 5px !important;
+            margin: 4px 8px !important;
+        }
+
+        /* Icons in navigation */
+        .sidebar .nav-icon {
+            font-size: 18px !important;
+            margin-right: 10px !important;
+        }
+
+        /* Add more spacing between navigation items */
+        .sidebar .nav-item {
+            margin-bottom: 5px !important;
+        }
+
+        /* Highlight active menu item */
+        .sidebar .nav-pills .nav-link.active {
+            background-color: #4caf50 !important;
+            color: #fff !important;
+            font-weight: 500 !important;
+        }
+
+        /* Hover effect for menu items */
+        .sidebar .nav-pills .nav-link:hover {
+            background-color: rgba(76, 175, 80, 0.2) !important;
+            color: #000 !important;
+        }
+
+        /* Dropdown menu inside sidebar */
+        .sidebar .nav-treeview > .nav-item > .nav-link {
+            padding-left: 30px !important;
+            font-size: 15px !important;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            .content-wrapper,
+            .main-header,
+            .main-footer {
+                margin-left: 0 !important;
+            }
+        }
+
+        /* When sidebar is collapsed */
+        body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .content-wrapper.sidebar-closed,
+        body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header.sidebar-closed,
+        body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer.sidebar-closed {
+            margin-left: 0 !important;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@yield('title')</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('lte/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css') }}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{ asset('lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    @stack('styles')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="{{ asset('lte/dist/img/AdminLTELogo.png') }}" alt="Logo" height="60" width="60">
+    </div>
 
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{asset('lte/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
-  </div>
-
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
-    </ul>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
-
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="{{asset('lte/dist/img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="{{asset('lte/dist/img/user8-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="{{asset('lte/dist/img/user3-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-light-success elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="{{asset('lte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{asset('lte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
-      </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>Dashboard</p>
-                </a>
-              </li>
-              @yield('nav-item')
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="nav-icon fas fa-solid fa-door-open"></i>
-                  <p>Logout</p>
-                </a>
-              </li>
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="{{ auth()->user()->role === 'dokter' ? route('dokter.dashboard') : route('pasien.dashboard') }}" class="nav-link">Dashboard</a>
+            </li>
         </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    @yield('content')
-  </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
-  </footer>
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" role="button">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-light-success elevation-4">
+        <!-- Brand Logo -->
+        <a href="{{ auth()->user()->role === 'dokter' ? route('dokter.dashboard') : route('pasien.dashboard') }}" class="brand-link">
+            <img src="{{ asset('lte/dist/img/AdminLTELogo.png') }}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light">Klinik App</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="{{ asset('lte/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">{{ auth()->user()->nama }}</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="{{ auth()->user()->role === 'dokter' ? route('dokter.dashboard') : route('pasien.dashboard') }}" class="nav-link {{ Route::is('dokter.dashboard', 'pasien.dashboard') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    @if (auth()->user()->role === 'dokter')
+                        <li class="nav-item">
+                            <a href="{{ route('dokter.memeriksa') }}" class="nav-link {{ Route::is('dokter.memeriksa') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-stethoscope"></i>
+                                <p>Memeriksa</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('obat.index') }}" class="nav-link {{ Route::is('obat.index') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-capsules"></i>
+                                <p>Obat</p>
+                            </a>
+                        </li>
+                    @elseif (auth()->user()->role === 'pasien')
+                        <li class="nav-item">
+                            <a href="{{ route('pasien.periksa.create') }}" class="nav-link {{ Route::is('pasien.periksa.create') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-calendar-check"></i>
+                                <p>Buat Janji</p>
+                            </a>
+                        </li>
+                    @endif
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form-sidebar').submit();">
+                            <i class="nav-icon fas fa-sign-out-alt"></i>
+                            <p>Logout</p>
+                        </a>
+                        <form id="logout-form-sidebar" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        @yield('content')
+    </div>
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+        <strong>Copyright &copy; {{ date('Y') }} <a href="#">Klinik App</a>.</strong> All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 1.0.0
+        </div>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
 </div>
-<!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{{asset('lte\plugins/jquery/jquery.min.js')}}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{asset('lte\plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
+<script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{asset('lte\plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- ChartJS -->
-<script src="{{asset('lte\plugins/chart.js/Chart.min.js')}}"></script>
-<!-- Sparkline -->
-<script src="{{asset('lte\plugins/sparklines/sparkline.js')}}"></script>
-<!-- JQVMap -->
-<script src="{{asset('lte\plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-<script src="{{asset('lte\plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{asset('lte\plugins/jquery-knob/jquery.knob.min.js')}}"></script>
-<!-- daterangepicker -->
-<script src="{{asset('lte\plugins/moment/moment.min.js')}}"></script>
-<script src="{{asset('lte\plugins/daterangepicker/daterangepicker.js')}}"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{asset('lte\plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
-<!-- Summernote -->
-<script src="{{asset('lte\plugins/summernote/summernote-bs4.min.js')}}"></script>
-<!-- overlayScrollbars -->
-<script src="{{asset('lte\plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{asset('lte/dist/js/adminlte.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('lte/dist/js/demo.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
+<script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
 @stack('scripts')
 </body>
 </html>

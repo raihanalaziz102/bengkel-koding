@@ -4,28 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Register</title>
-
-  <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('lte/plugins/fontawesome-free/css/all.min.css')}}">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{asset('lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('lte/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('lte/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css') }}">
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="{{asset('lte/index2.html')}}" class="h1"><b>Register</b>Page</a>
+      <a href="{{ url('/') }}" class="h1"><b>Register</b>Page</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Silahkan Register</p>
 
-      <form action="{{asset('lte/index.html')}}" method="post">
+      @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
+
+      <form action="{{ route('register.post') }}" method="post">
+        @csrf
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name">
+          <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" value="{{ old('nama') }}" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -33,7 +39,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -41,7 +47,35 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="text" name="alamat" class="form-control" placeholder="Alamat" value="{{ old('alamat') }}" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-home"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="no_hp" class="form-control" placeholder="Nomor HP" value="{{ old('no_hp') }}" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-phone"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <select name="role" class="form-control" required>
+            <option value="" disabled selected>Pilih Role</option>
+            <option value="dokter" {{ old('role') == 'dokter' ? 'selected' : '' }}>Dokter</option>
+            <option value="pasien" {{ old('role') == 'pasien' ? 'selected' : '' }}>Pasien</option>
+          </select>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user-tag"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -49,7 +83,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password">
+          <input type="password" name="password_confirmation" class="form-control" placeholder="Konfirmasi Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -59,32 +93,25 @@
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree" required>
               <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
+                Saya setuju dengan <a href="#">syarat dan ketentuan</a>
               </label>
             </div>
           </div>
-          <!-- /.col -->
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
-          <!-- /.col -->
         </div>
       </form>
 
-      <a href="login.html')}}" class="text-center">Sudah Punya Akun? Login</a>
+      <a href="{{ route('login') }}" class="text-center">Sudah Punya Akun? Login</a>
     </div>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
+  </div>
 </div>
-<!-- /.register-box -->
 
-<!-- jQuery -->
-<script src="{{asset('lte/plugins/jquery/jquery.min.js')}}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('lte/dist/js/adminlte.min.js')}}"></script>
+<script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
 </body>
 </html>
